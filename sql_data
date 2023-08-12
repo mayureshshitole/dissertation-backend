@@ -1,0 +1,49 @@
+use helper;
+CREATE TABLE `tbl_helpers` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL DEFAULT '0',
+  `created_at` varchar(45) NOT NULL,
+  `bio` varchar(255) DEFAULT NULL,
+  `is_active` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_tasks` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `user_id` bigint NOT NULL,
+  `added_at` varchar(255) DEFAULT NULL,
+  `is_open` int NOT NULL DEFAULT '1',
+  `deadline` varchar(255) DEFAULT NULL,
+  `is_assigned` int NOT NULL DEFAULT '0',
+  `helper_id` bigint DEFAULT NULL,
+  `latitude` decimal(9,6) NOT NULL,
+  `longitude` decimal(9,6) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `budget` int NOT NULL DEFAULT '10',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_tasks_done` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `helper_id` bigint NOT NULL DEFAULT '0',
+  `task_id` bigint NOT NULL DEFAULT '0',
+  `done_at` varchar(45) DEFAULT NULL,
+  `user_id` bigint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `tbl_users` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `google_id` varchar(255) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `country_code` varchar(45) DEFAULT '+44',
+  `bio` varchar(255) DEFAULT NULL,
+  `type` enum('helper','user','skilled') NOT NULL DEFAULT 'user',
+  `last_login` varchar(56) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `is_active` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
