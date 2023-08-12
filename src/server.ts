@@ -24,13 +24,13 @@ app.use(compression());
 // helmet pkg for secure express http responses headers
 app.use(helmet());
 // cors middleware
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    methods: "GET,PUT,POST,DELETE",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_URL,
+//     methods: "GET,PUT,POST,DELETE",
+//     credentials: true,
+//   })
+// );
 // cookie session
 app.use(
   cookieSession({

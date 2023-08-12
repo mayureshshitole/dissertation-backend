@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "rimraf ./build && tsc",
+    "build": "tsc -p .",
+    "ts-start":"tsc src/server.ts",
+    "start":"ts-node src/server.ts",
     "prodStart": "npm run build && node build/server.js"
   },
   "keywords": [],
