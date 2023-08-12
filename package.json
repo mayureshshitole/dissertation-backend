@@ -8,7 +8,7 @@
     "build": "tsc -p .",
     "ts-start":"tsc src/server.ts",
     "start":"ts-node src/server.ts",
-    "prodStart": "npm run build && node build/server.js"
+    "prodStart": "npm run build && node ./build/server.js"
   },
   "keywords": [],
   "author": "Mayuresh Shitole",

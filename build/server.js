@@ -17,7 +17,6 @@ require("dotenv/config");
 const body_parser_1 = __importDefault(require("body-parser"));
 const compression_1 = __importDefault(require("compression"));
 const helmet_1 = __importDefault(require("helmet"));
-const cors_1 = __importDefault(require("cors"));
 const cookie_session_1 = __importDefault(require("cookie-session"));
 const cluster_1 = __importDefault(require("cluster"));
 const os_1 = require("os");
@@ -35,11 +34,13 @@ app.use((0, compression_1.default)());
 // helmet pkg for secure express http responses headers
 app.use((0, helmet_1.default)());
 // cors middleware
-app.use((0, cors_1.default)({
-    origin: process.env.FRONTEND_URL,
-    methods: "GET,PUT,POST,DELETE",
-    credentials: true,
-}));
+// app.use(
+//   cors({
+//     origin: process.env.FRONTEND_URL,
+//     methods: "GET,PUT,POST,DELETE",
+//     credentials: true,
+//   })
+// );
 // cookie session
 app.use((0, cookie_session_1.default)({
     name: "session",
