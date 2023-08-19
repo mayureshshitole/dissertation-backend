@@ -1,14 +1,13 @@
-
 import mysql from "mysql2";
 import "dotenv/config";
-
 
 const connectionDB = mysql.createPool({
   host: process.env.host,
   user: process.env.user,
   database: process.env.database,
-  password:process.env.password,
+  password: process.env.password,
   waitForConnections: true,
+  port: process.env.db_port as any,
   connectionLimit: 10,
   maxIdle: 10, // max idle connections, the default value is the same as `connectionLimit`
   idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
