@@ -128,7 +128,7 @@ const getNearByTasks = async (inputs: any) => {
             )
         ),2) AS distance 
         FROM tbl_tasks
-        where user_id != ${inputs.user_id} and is_assigned=0 
+        where user_id != ${inputs.user_id} and is_assigned=0 and is_open=1
         having distance <= ${inputs.range}
         order by distance asc`;
 
